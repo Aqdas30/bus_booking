@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <h2>{% trans "Booking Successful!" %}</h2>
+    <p>{% trans "Your booking reference:" %} <strong>{{ booking.booking_reference }}</strong></p>
+    <p>{% trans "Destination:" %} {{ booking.route.destination }}</p>
+    <p>{% trans "Date:" %} {{ booking.booking_date }}</p>
+    <p>{% trans "Passengers:" %} {{ booking.passengers }}</p>
+    <p>{% trans "Thank you for choosing us!" %}</p>
+</div>
+{% endblock %}

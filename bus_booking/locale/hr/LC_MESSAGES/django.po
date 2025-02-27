@@ -1,0 +1,338 @@
+# Croatian translations for Bus Booking Website
+# Automatically generated, edit below to add translations.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: hr\n"
+
+# General
+msgid "Bus Station"
+msgstr "Autobusna stanica"
+
+msgid "Home"
+msgstr "Početna"
+
+msgid "Bookings"
+msgstr "Rezervacije"
+
+msgid "Gallery"
+msgstr "Galerija"
+
+msgid "About"
+msgstr "O nama"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Login"
+msgstr "Prijava"
+
+msgid "Logout"
+msgstr "Odjava"
+
+msgid "Welcome to the Bus Station!"
+msgstr "Dobrodošli na autobusnu stanicu!"
+
+msgid "Select passengers"
+msgstr "Odaberite putnike"
+
+msgid "Adults"
+msgstr "Odrasli"
+
+msgid "Number of adults traveling."
+msgstr "Broj odraslih putnika."
+
+msgid "Children"
+msgstr "Djeca"
+
+msgid "Ages 2 to 15."
+msgstr "Dob od 2 do 15 godina."
+
+msgid "Students/Retired"
+msgstr "Studenti/Umirovljenici"
+
+msgid "Students or retired travelers."
+msgstr "Studenti ili umirovljenici."
+
+msgid "Retired"
+msgstr "Umirovljenici"
+
+msgid "Booking Confirmation"
+msgstr "Potvrda rezervacije"
+
+msgid "Number of Passengers"
+msgstr "Broj putnika"
+
+
+
+msgid "Customer"
+msgstr "Korisnik"
+
+msgid "Thank you for choosing our bus service!"
+msgstr "Hvala što koristite našu autobusnu uslugu!"
+
+msgid "Booking History"
+msgstr "Povijest rezervacija"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Message"
+msgstr "Poruka"
+
+msgid "Your message has been sent successfully!"
+msgstr "Vaša poruka je uspješno poslana!"
+
+msgid "New Contact Form Submission from"
+msgstr "Novi kontakt obrazac od"
+
+msgid "New Booking Notification"
+msgstr "Obavijest o novoj rezervaciji"
+
+msgid "Processing booking..."
+msgstr "Obrađivanje rezervacije..."
+
+msgid "Your booking has been confirmed!"
+msgstr "Vaša rezervacija je potvrđena!"
+
+msgid "Enter your email or phone number to check booking history."
+msgstr "Unesite svoj e-mail ili broj telefona za provjeru povijesti rezervacija."
+
+msgid "Search"
+msgstr "Pretraži"
+
+msgid "Bus Routes"
+msgstr "Autobusne linije"
+
+msgid "Continue"
+msgstr "Nastavi"
+
+msgid "Payment"
+msgstr "Plaćanje"
+
+msgid "Checkout"
+msgstr "Blagajna"
+
+msgid "Price per ticket"
+msgstr "Cijena po karti"
+
+msgid "Discount"
+msgstr "Popust"
+
+msgid "Final Price"
+msgstr "Konačna cijena"
+
+msgid "Select a destination"
+msgstr "Odaberite odredište"
+
+msgid "Departure Date"
+msgstr "Datum polaska"
+
+msgid "Select Language"
+msgstr "Odaberite jezik"
+
+msgid "Hrvatski"
+msgstr "Hrvatski"
+
+msgid "English"
+msgstr "Engleski"
+
+msgid "Deutsch"
+msgstr "Njemački"
+
+msgid "Book Your Tickets Now!"
+msgstr "Rezervirajte svoje karte sada!"
+
+msgid "From"
+msgstr "Polazak"
+
+
+msgid "Select destination"
+msgstr "Odaberite odredište"
+
+msgid "Departure"
+msgstr "Vrijeme polaska"
+
+msgid "Book Now"
+msgstr "Rezerviraj sada!"
+
+msgid "Select number of passengers"
+msgstr "Odaberite broj putnika"
+
+msgid "Departure Time"
+msgstr "Vrijeme polaska"
+
+msgid "Return Ticket"
+msgstr "Povratna karta"
+
+msgid "One Way Ticket"
+msgstr "Jednosmjerna karta"
+
+msgid "Confirm Booking"
+msgstr "Potvrdite rezervaciju"
+
+msgid "Passenger Information"
+msgstr "Podaci o putnicima"
+
+msgid "First Name"
+msgstr "Ime"
+
+msgid "Last Name"
+msgstr "Prezime"
+
+msgid "Submit"
+msgstr "Pošalji"
+
+msgid "Cancel"
+msgstr "Otkaži"
+
+msgid "Close"
+msgstr "Zatvori"
+
+msgid "Seats Available"
+msgstr "Dostupna mjesta"
+
+msgid "Ticket Price"
+msgstr "Cijena karte"
+
+msgid "Next"
+msgstr "Sljedeće"
+
+msgid "Previous"
+msgstr "Prethodno"
+
+msgid "Payment Method"
+msgstr "Način plaćanja"
+
+msgid "Pay Now"
+msgstr "Plati sada"
+
+msgid "Terms and Conditions"
+msgstr "Uvjeti i odredbe"
+
+msgid "I agree to the terms and conditions"
+msgstr "Slažem se s uvjetima i odredbama"
+
+msgid "Confirm and Pay"
+msgstr "Potvrdi i plati"
+
+msgid "Print Ticket"
+msgstr "Ispis karte"
+
+msgid "Booking Reference"
+msgstr "Referentni broj rezervacije"
+
+msgid "Help"
+msgstr "Pomoć"
+
+msgid "Need Assistance?"
+msgstr "Trebate pomoć?"
+
+msgid "Customer Support"
+msgstr "Korisnička podrška"
+
+msgid "Call us"
+msgstr "Nazovite nas"
+
+msgid "Email us"
+msgstr "Pošaljite nam e-mail"
+
+
+msgid "Select date and time"
+msgstr "Odaberite datum i vrijeme"
+
+msgid "All rights reserved"
+msgstr "Sva prava pridržana"
+
+msgid "Our Gallery"
+msgstr "Naša galerija"
+
+
+msgid "About Us"
+msgstr "O nama"
+
+msgid "Get in Touch"
+msgstr "Kontaktirajte nas"
+
+msgid "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, aut natus. Laborum fugiat molestiae ipsam. Esse repudiandae repellendus ducimus quo. Ipsam perferendis libero assumenda eligendi iusto ut blanditiis et autem?"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, aut natus. Laborum fugiat molestiae ipsam. Esse repudiandae repellendus ducimus quo. Ipsam perferendis libero assumenda eligendi iusto ut blanditiis et autem?"
+
+
+
+msgid "Contact Us"
+msgstr "Kontaktirajte nas"
+
+msgid "Your Email"
+msgstr "Vaš e-mail"
+
+msgid "Your Name"
+msgstr "Vaše ime"
+
+msgid "Your Phone"
+msgstr "Vaš telefon"
+
+msgid "Your Message"
+msgstr "Vaša poruka"
+
+msgid "Leave a comment..."
+msgstr "Ostavite komentar..."
+
+msgid "Send Message"
+msgstr "Pošaljite poruku"
+
+
+msgid "Your Booking History"
+msgstr "Vaša povijest rezervacija"
+
+msgid "Reference"
+msgstr "Referenca"
+
+msgid "Destination"
+msgstr "Odredište"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Passengers"
+msgstr "Putnici"
+
+
+msgid "Total Price"
+msgstr "Ukupna cijena"
+
+msgid "No bookings found."
+msgstr "Nema pronađenih rezervacija."
+
+
+msgid "Confirm Your Booking"
+msgstr "Potvrdite svoju rezervaciju"
+
+msgid "Please enter your details to confirm your ticket."
+msgstr "Unesite svoje podatke kako biste potvrdili svoju kartu."
+
+
+msgid "Your Bookings"
+msgstr "Vaše rezervacije"
+
+msgid "You're not logged in. Please enter the email and phone number you used to book the tickets."
+msgstr "Niste prijavljeni. Unesite e-mail i telefonski broj koje ste koristili za rezervaciju karata."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Pending"
+msgstr "Na čekanju"
+
+
+msgid "Booking Successful!"
+msgstr "Rezervacija uspješna!"
+
+msgid "Your booking reference:"
+msgstr "Vaša referenca rezervacije:"
+
+
+msgid "Thank you for choosing us!"
+msgstr "Hvala što ste nas odabrali!"

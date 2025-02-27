@@ -1,0 +1,270 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Bus Station" %}</title>
+
+    <!-- Load static files -->
+    {% load static %}
+    {% load i18n %}
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <style>
+        /* Custom Styles */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 60vh; /* Reduced height for better mobile viewing */
+            background: url("{% static 'images/gallery/bus2.jpg' %}") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-text {
+            font-size: clamp(2.5rem, 8vw, 6rem); /* Responsive font sizing */
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        /* Center navigation menu items */
+        .navbar-nav {
+            margin: auto;
+        }
+        /* Ensure dropdowns work correctly */
+        .dropdown-menu {
+            min-width: 200px;
+        }
+
+        /* Passenger Dropdown Styling */
+        .dropdown-menu.passenger-dropdown {
+            width: 300px;
+            padding: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .counter-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .btn-counter {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            background: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        .btn-counter:hover {
+            background: #f0f0f0;
+        }
+        /* Make destination dropdown scrollable */
+        #destinationMenu {
+            max-height: 250px; /* Adjust height */
+            overflow-y: auto;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            .hero-section {
+                height: 40vh;
+            }
+            .dropdown-menu.passenger-dropdown {
+                width: 100%;
+            }
+            /* Ensure buttons are visible on mobile */
+            .btn {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Ensure better small screen compatibility */
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .form-control, .btn {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Fix for mobile navbar dropdown */
+        .navbar-collapse {
+            flex-basis: 100%;
+            flex-grow: 1;
+            align-items: center;
+        }
+        /* Gallery Styling */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+.carousel-img {
+    height: 500px; /* Adjust this height as needed */
+    object-fit: cover; /* Ensures the image covers the fixed height */
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">{% trans "Bus Station" %}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'index' %}text-primary fw-bold{% endif %}" href="{% url 'bus_booking:index' %}">{% trans "Home" %}</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'booking_history' %}text-primary fw-bold{% endif %}" href="{% url 'bus_booking:booking_history' %}">{% trans "Bookings" %}</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'gallery' %}text-primary fw-bold{% endif %}" href="{% url 'bus_booking:gallery' %}">{% trans "Gallery" %}</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'about' %}text-primary fw-bold{% endif %}" href="{% url 'bus_booking:about' %}">{% trans "About" %}</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'contact' %}text-primary fw-bold{% endif %}" href="{% url 'bus_booking:contact' %}">{% trans "Contact" %}</a></li>
+                </ul>
+
+                <!-- Language Selector -->
+                <div class="dropdown me-2 mt-2 mt-lg-0">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if LANGUAGE_CODE == 'hr' %} HR {% elif LANGUAGE_CODE == 'en' %} EN {% elif LANGUAGE_CODE == 'de' %} DE {% endif %}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                        <li>
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <button class="dropdown-item" type="submit" name="language" value="hr">HR Hrvatski</button>
+                                <button class="dropdown-item" type="submit" name="language" value="en">EN English</button>
+                                <button class="dropdown-item" type="submit" name="language" value="de">DE Deutsch</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- User Dropdown -->
+                {% if user.is_authenticated %}
+                <div class="dropdown mt-2 mt-lg-0">
+                    <a href="#" class="text-dark text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown">
+                        <span class="fw-bold">{{ user.username }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{% url 'bus_booking:booking_history' %}">{% trans "Booking History" %}</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form method="post" action="{% url 'bus_booking:logout' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-link text-danger fw-bold"> {% trans "Logout" %} </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                {% else %}
+                <a href="{% url 'bus_booking:login' %}" class="btn btn-primary ms-2 mt-2 mt-lg-0">{% trans "Login" %}</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        {% block content %} {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-4 p-3 bg-light">
+        <p>&copy; 2025 {% trans "Bus Station" %}. {% trans "All rights reserved" %}.</p>
+    </footer>
+
+    <!-- Bootstrap JS & Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+   
+<!-- ✅ JavaScript Fixes -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // Initialize Flatpickr for date selection
+        flatpickr("#departure", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            minDate: "today",
+            time_24hr: true
+        });
+
+        // ✅ Fix Destination Dropdown
+        document.querySelectorAll(".destination-option").forEach(item => {
+            item.addEventListener("click", function(event) {
+                event.preventDefault();
+                document.getElementById("destinationDropdown").innerText = this.innerText;
+                document.getElementById("destinationInput").value = this.dataset.value;
+            });
+        });
+
+        // ✅ Fix Passenger Dropdown
+        let passengerDropdown = new bootstrap.Dropdown(document.getElementById("passengerDropdownToggle"));
+        
+        document.getElementById("passengerDropdownToggle").addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent closing when clicking inside
+            passengerDropdown.show();
+        });
+
+        // Close Dropdown When Clicking Outside
+        document.addEventListener("click", function (event) {
+            if (!event.target.closest(".dropdown")) {
+                passengerDropdown.hide();
+            }
+        });
+
+        // ✅ Passenger Count Update Function
+        window.updatePassengerCount = function (type, change) {
+            let countElement = document.getElementById(type + "Count");
+            let count = parseInt(countElement.innerText);
+            if (count + change >= 0) {
+                countElement.innerText = count + change;
+                document.getElementById(type + "Input").value = count + change;
+
+                // Update Passenger Summary
+                let totalPassengers = parseInt(document.getElementById("adultsCount").innerText) +
+                                      parseInt(document.getElementById("childrenCount").innerText) +
+                                      parseInt(document.getElementById("studentsCount").innerText);
+                document.getElementById("passengerSummary").innerText = totalPassengers > 0 ? totalPassengers + " {% trans 'Passengers' %}" : "{% trans 'Select passengers' %}";
+            }
+        };
+    });
+</script>
+
+
+
+</body>
+</html>

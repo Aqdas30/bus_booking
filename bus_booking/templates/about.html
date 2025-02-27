@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center fw-bold">{% trans "About Us" %}</h1>
+    <p class="text-center text-muted">
+        {% trans "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, aut natus. Laborum fugiat molestiae ipsam. Esse repudiandae repellendus ducimus quo. Ipsam perferendis libero assumenda eligendi iusto ut blanditiis et autem?" %}
+    </p>
+
+    <!-- About Section with Image and Text -->
+    <div class="row align-items-center mt-5">
+        <!-- Left Side: Image -->
+        <div class="col-md-6">
+            <img src="{% static 'images/gallery/bus2.jpg' %}" class="img-fluid rounded shadow" alt="About Image">
+        </div>
+        
+        <!-- Right Side: Text -->
+        <div class="col-md-6">
+            <p>
+                {% trans "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, aut natus. Laborum fugiat molestiae ipsam. Esse repudiandae repellendus ducimus quo. Ipsam perferendis libero assumenda eligendi iusto ut blanditiis et autem?" %}
+            </p>
+            <p>
+                {% trans "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, aut natus. Laborum fugiat molestiae ipsam. Esse repudiandae repellendus ducimus quo. Ipsam perferendis libero assumenda eligendi iusto ut blanditiis et autem?" %}
+            </p>
+            <!-- Call to Action Button -->
+            <a href="#" class="btn btn-primary btn-lg mt-3">{% trans "Get in Touch" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

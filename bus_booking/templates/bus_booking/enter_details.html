@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4">{% trans "Your Bookings" %}</h2>
+    <p>{% trans "You're not logged in. Please enter the email and phone number you used to book the tickets." %}</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="email">{% trans "Your Email" %}</label>
+            <input type="email" class="form-control" name="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="phone">{% trans "Your Phone" %}</label>
+            <input type="text" class="form-control" name="phone" id="phone">
+        </div>
+        <button type="submit" class="btn btn-dark mt-3">{% trans "Submit" %}</button>
+    </form>
+</div>
+{% endblock %}

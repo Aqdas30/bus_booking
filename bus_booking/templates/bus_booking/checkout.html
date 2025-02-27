@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="text-center">
+        <h2 class="mt-5">{% trans "Confirm Your Booking" %}</h2>
+        <p>{% trans "Please enter your details to confirm your ticket." %}</p>
+    </div>
+
+    <div class="col-md-6">
+        <form method="POST" action="{% url 'bus_booking:book_ticket' %}" class="p-4 shadow rounded" style="background: #fff;">
+            {% csrf_token %}
+
+            <!-- Hidden Fields to Pass Booking Data -->
+            <input type="hidden" name="destination" value="{{ request.GET.destination }}">
+            <input type="hidden" name="booking_date" value="{{ request.GET.booking_date }}">
+            <input type="hidden" name="adults" value="{{ request.GET.adults|default:"0" }}">
+            <input type="hidden" name="children" value="{{ request.GET.children|default:"0" }}">
+            <input type="hidden" name="students" value="{{ request.GET.students|default:"0" }}">
+
+            <!-- First Name -->
+            <div class="mb-3">
+                <input type="text" name="first_name" class="form-control" placeholder="{% trans 'First Name' %}" required>
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-3">
+                <input type="text" name="last_name" class="form-control" placeholder="{% trans 'Last Name' %}" required>
+            </div>
+
+            <!-- Email Input -->
+            <div class="mb-3">
+                <input type="email" name="email" class="form-control" placeholder="{% trans 'Your Email' %}" required>
+            </div>
+
+            <!-- Phone Input -->
+            <div class="mb-3">
+                <input type="tel" name="phone" class="form-control" pattern="^\+?[0-9\s-]{7,15}$" 
+                    placeholder="{% trans 'Your Phone' %}" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark w-100">
+                    {% trans "Submit" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

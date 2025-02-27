@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="hero-text">{% trans "Bus Station" %}</div>
+</header>
+
+<!-- Booking Form Section -->
+<section class="container mt-4">
+    <h2 class="text-center mb-4">{% trans "Book Your Tickets Now!" %}</h2>
+
+    <form method="GET" action="{% url 'bus_booking:checkout' %}" class="row g-3">
+        
+        <!-- From -->
+        <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <label class="form-label">{% trans "From" %}</label>
+            <input type="text" class="form-control" value="ORAŠJE" readonly>
+        </div>
+
+        <!-- Destination -->
+        <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <label class="form-label">{% trans "Destination" %}</label>
+            <div class="dropdown">
+                <button class="btn btn-light form-control dropdown-toggle text-start" type="button" id="destinationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    {% trans "Select destination" %}
+                </button>
+                <ul class="dropdown-menu w-100 overflow-auto" id="destinationMenu" style="max-height: 300px;">
+                    {% for country, destinations in grouped_routes.items %}
+                        {% if destinations %}
+                            <li><h6 class="dropdown-header">{{ country }}</h6></li>
+                            {% for destination in destinations %}
+                                <li><a class="dropdown-item destination-option" href="#" data-value="{{ destination }}">{{ destination }}</a></li>
+                            {% endfor %}
+                            <li><hr class="dropdown-divider"></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <input type="hidden" name="destination" id="destinationInput">
+        </div>
+
+        <!-- Departure -->
+        <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <label class="form-label">{% trans "Departure" %}</label>
+            <input type="text" class="form-control" id="departure" name="booking_date" required placeholder="{% trans 'Select date and time' %}">
+        </div>
+
+        <!-- Passengers -->
+        <div class="col-12 col-md-6 col-lg-3 mb-3">
+            <label class="form-label">{% trans "Passengers" %}</label>
+            <div class="dropdown">
+                <button class="btn btn-light form-control dropdown-toggle text-start" type="button" id="passengerDropdownToggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="passengerSummary">{% trans "Select passengers" %}</span>
+                </button>
+                <div class="dropdown-menu p-3 shadow-lg w-100" id="passengerDropdown">
+                    
+                    <!-- Adults -->
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <strong>{% trans "Adults" %}</strong>
+                            <p class="text-muted small mb-0">{% trans "Number of adults traveling." %}</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button class="btn-counter" type="button" onclick="updatePassengerCount('adults', -1)">-</button>
+                            <span id="adultsCount" class="mx-2">0</span>
+                            <button class="btn-counter" type="button" onclick="updatePassengerCount('adults', 1)">+</button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="adults" id="adultsInput" value="0">
+
+                    <!-- Children -->
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <strong>{% trans "Children" %}</strong>
+                            <p class="text-muted small mb-0">{% trans "Ages 2 to 15." %}</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button class="btn-counter" type="button" onclick="updatePassengerCount('children', -1)">-</button>
+                            <span id="childrenCount" class="mx-2">0</span>
+                            <button class="btn-counter" type="button" onclick="updatePassengerCount('children', 1)">+</button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="children" id="childrenInput" value="0">
+
+                    <!-- Students -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>{% trans "Students/Retired" %}</strong>
+                            <p class="text-muted small mb-0">{% trans "Students or retired travelers." %}</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button class="btn-counter" type="button" onclick="updatePassengerCount('students', -1)">-</button>
+                            <span id="studentsCount" class="mx-2">0</span>
+                            <button class="btn-counter" type="button" onclick="updatePassengerCount('students', 1)">+</button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="students" id="studentsInput" value="0">
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn btn-dark btn-lg px-4 py-2">{% trans "Book Now" %}</button>
+        </div>
+
+    </form>
+</section>
+
+{% endblock %}

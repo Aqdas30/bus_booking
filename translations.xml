@@ -1,0 +1,22 @@
+<translations>
+    <text key="Home">
+        <hr>Početna</hr>
+        <en>Home</en>
+        <de>Startseite</de>
+    </text>
+    <text key="Bookings">
+        <hr>Rezervacije</hr>
+        <en>Bookings</en>
+        <de>Buchungen</de>
+    </text>
+    <text key="Gallery">
+        <hr>Galerija</hr>
+        <en>Gallery</en>
+        <de>Galerie</de>
+    </text>
+    <text key="Contact">
+        <hr>Kontakt</hr>
+        <en>Contact</en>
+        <de>Kontakt</de>
+    </text>
+</translations>

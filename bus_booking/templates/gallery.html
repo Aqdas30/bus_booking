@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}  <!-- ✅ Ensure static is loaded -->
+{% load i18n %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center fw-bold">{% trans "Our Gallery" %}</h1>
+
+    <!-- Hero Section: Bootstrap Carousel -->
+    <div id="galleryCarousel" class="carousel slide mt-4 shadow rounded" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in gallery_images %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{% static 'images/gallery/'|add:image %}" class="d-block w-100 carousel-img" alt="Bus Image">
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="row mt-5">
+        {% for image in gallery_images %}
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="gallery-item">
+                <img src="{% static 'images/gallery/'|add:image %}" class="img-fluid rounded shadow" alt="Bus Image">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- CSS for Equal Height Carousel Images -->
+
+{% endblock %}

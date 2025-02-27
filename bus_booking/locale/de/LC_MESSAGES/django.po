@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: hr\n"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Bookings"
+msgstr "Buchungen"
+
+msgid "Gallery"
+msgstr "Galerie"
+
+msgid "About"
+msgstr "Über uns"
+
+msgid "Contact"
+msgstr "Kontakt"

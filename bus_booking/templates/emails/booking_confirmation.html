@@ -1,0 +1,39 @@
+
+{# templates/emails/booking_confirmation.html #}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #007bff; color: white; padding: 20px; text-align: center; }
+        .content { padding: 20px; }
+        .footer { text-align: center; padding: 20px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{% if is_customer %}Booking Confirmation{% else %}New Booking Notification{% endif %}</h1>
+        </div>
+        <div class="content">
+            <p>Booking Reference: <strong>{{ booking.booking_reference }}</strong></p>
+            <p>Destination: {{ booking.route.destination }}</p>
+            <p>Date: {{ booking.booking_date }}</p>
+            <p>Passengers: {{ booking.passengers }}</p>
+            <p>Total Price: ${{ booking.total_price }}</p>
+            <p>Customer: {{ booking.first_name }} {{ booking.last_name }}</p>
+            <p>Contact: {{ booking.email }} / {{ booking.phone }}</p>
+            
+            {% if is_customer %}
+            <p>Please collect and pay for your tickets at the bus station before departure.</p>
+            {% else %}
+            <p>New booking received. Please process this booking manually.</p>
+            {% endif %}
+        </div>
+        <div class="footer">
+            <p>Thank you for choosing our bus service!</p>
+        </div>
+    </div>
+</body>
+</html>
