@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'bus_booking',
-    'users',
     'crispy_forms',
     'django.contrib.sites',  
     'allauth',
